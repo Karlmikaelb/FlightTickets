@@ -34,7 +34,7 @@ namespace FlightTickets.Controllers
             {
                 var identity = new ClaimsIdentity(new[] {
                 new Claim(ClaimTypes.Name, "Kalle"),
-                new Claim(ClaimTypes.Email, "a@b.com"),
+                new Claim(ClaimTypes.Email, model.Email),
                 new Claim(ClaimTypes.Country, "Sweden")
             },
             "ApplicationCookie");
