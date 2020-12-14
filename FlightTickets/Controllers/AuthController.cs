@@ -33,9 +33,9 @@ namespace FlightTickets.Controllers
             if (model.Email == "admin@admin.com" && model.Password == "password")
             {
                 var identity = new ClaimsIdentity(new[] {
-                new Claim(ClaimTypes.Name, "Ben"),
+                new Claim(ClaimTypes.Name, "Kalle"),
                 new Claim(ClaimTypes.Email, "a@b.com"),
-                new Claim(ClaimTypes.Country, "England")
+                new Claim(ClaimTypes.Country, "Sweden")
             },
             "ApplicationCookie");
 
