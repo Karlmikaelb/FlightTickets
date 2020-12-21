@@ -10,8 +10,16 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    @Html.EditorForModel()
-    <p>
-        <button type="submit">Log in</button>
-    </p>
+    <form>
+        <div class="mb-3">
+            <label for="Email" class="form-label">Email address</label>
+            @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="mb-3">
+            <label for="Password" class="form-label">Password</label>
+            @Html.EditorFor(m => m.Password, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 }
