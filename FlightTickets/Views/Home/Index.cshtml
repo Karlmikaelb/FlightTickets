@@ -1,10 +1,23 @@
-﻿@{
+﻿@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.EntityFramework
+@using FlightTickets.Models
+@using FlightTickets.DAL
+
+@{
     ViewBag.Title = "Home Page";
+    AppUser currentUser = null;
+
+    if (User.Identity.IsAuthenticated)
+    {
+        var userStore = new UserStore<AppUser>(new AppDbContext());
+        var userManager = new UserManager<AppUser>(userStore);
+        currentUser = userManager.FindById(User.Identity.GetUserId());
+    }
 }
 
 <div class="jumbotron">
-    <h1>Hello @CurrentUser.Name</h1>
-    <p>We have some amazing flights from @CurrentUser.Country</p>
+    <h1>Hello @currentUser.FirstName @currentUser.LastName</h1>
+    <p>We have some amazing flights from @currentUser.Country</p>
     <p><a href="@Url.Action("logout", "auth")">Log out</a></p>
 </div>
 

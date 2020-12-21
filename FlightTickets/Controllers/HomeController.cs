@@ -13,5 +13,12 @@ namespace FlightTickets.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public ActionResult Details()
+        {
+            return View();            
+        }
     }
 }
